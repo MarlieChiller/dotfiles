@@ -1,7 +1,0 @@
-echo "# dotfiles" >> README.md
-git init
-git add README.md
-git commit -m "added .zshrc file"
-git branch -M main
-git remote add origin git@github.com:MarlieChiller/dotfiles.git
-git push -u origin main
