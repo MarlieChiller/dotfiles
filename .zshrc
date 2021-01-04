@@ -100,3 +100,6 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.dotfiles/kubectl_aliases.txt ] && source ~/.dotfiles/kubectl_aliases.txt
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
