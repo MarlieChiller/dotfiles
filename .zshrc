@@ -98,3 +98,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [ -f ~/.dotfiles/kubectl_aliases.txt ] && source ~/.dotfiles/kubectl_aliases.txt
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
