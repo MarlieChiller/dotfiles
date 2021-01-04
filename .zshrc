@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sublime docker-compose kube-ps1)
+plugins=(git sublime docker-compose kube-ps1 fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,3 +97,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+[ -f ~/.dotfiles/kubectl_aliases.txt ] && source ~/.dotfiles/kubectl_aliases.txt
