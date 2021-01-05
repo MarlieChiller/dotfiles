@@ -103,3 +103,4 @@ PS1='$(kube_ps1)'$PS1
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
+export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
