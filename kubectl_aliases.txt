@@ -11,7 +11,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-alias home='kx dev && cd ~/Documents/work-projects/'
+
+alias alia='vim ~/.dotfiles/kubectl_aliases.txt'
+alias clean='kx dev && cd ~/Documents/work-projects/'
+alias home='cd ~/Documents/work-projects/'
 alias cbag='cat ~/.dotfiles/kubectl_aliases.txt | grep '
 alias strn='stern'
 alias kx='kubectx'
