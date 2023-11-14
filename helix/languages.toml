@@ -1,0 +1,39 @@
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
+
+[[language]]
+name = "json"
+# language-server = "vscode-json-language-server"
+formatter = { command = 'npx', args = ["prettier", "--parser", "json"] }
+indent = { tab-width = 4, unit = "\t" }
+auto-format = true
+
+
+[[language]]
+name = "python"
+formatter = { command = "ruff-lsp", args = [], run = "onSave" }
+auto-format = true
+
+[language-server.pylsp]
+flake8 = {enabled = true}
+autopep8 = {enabled = false}
+mccabe = {enabled = false}
+pycodestyle = {enabled = false}
+pyflakes = {enabled = false}
+pylint = {enabled = false}
+yapf = {enabled = false}
+black = {enabled = true}
+ruff = { enabled = true, ignore = ["F401"] }
+
+[[language]]
+name = "javascript"
+scope = "source.js"
+injection-regex = "(js|javascript)"
+file-types = ["js", "mjs", "cjs"]
+shebangs = ["node"]
+roots = []
+comment-token = "//"
+indent = { tab-width = 2, unit = "  " }
+
