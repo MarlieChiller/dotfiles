@@ -36,8 +36,7 @@ export EDITOR="hx"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(docker-compose kube-ps1 gcloud dotenv zsh-syntax-highlighting git iterm2)
-# plugins=(docker-compose kube-ps1 gcloud dotenv zsh-autosuggestions zsh-syntax-highlighting git iterm2)
+plugins=(docker-compose kube-ps1 gcloud zsh-autosuggestions zsh-syntax-highlighting git iterm2)
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.dotfiles/kubectl_aliases.txt"
@@ -46,15 +45,12 @@ source "$HOME/.dotfiles/kubectl_aliases.txt"
 PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
 
 
-eval "$(mcfly init zsh)"
-eval "$(zoxide init zsh)"
-
 # source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 # source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 # source <(stern --completion=zsh)
 # $export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
 # $export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
-eval "$(oh-my-posh --init --shell zsh --config ~/.terminal_theme_2.json)"
+eval "$(oh-my-posh --init --shell zsh --config ~/.dotfiles/ohmyposh_config.toml)"
 
 source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -84,6 +80,9 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+eval "$(mcfly init zsh)"
+eval "$(zoxide init zsh)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/admin/.rd/bin:$PATH"

@@ -1,0 +1,133 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+version = 2
+
+[[blocks]]
+alignment = "left"
+type = "rprompt"
+
+  [[blocks.segments]]
+  type = "iterm"
+  interactive = true
+  style = "plain"
+  foreground = "#80ffea"
+  template = "{{ .PromptMark }}"
+
+  [[blocks.segments]]
+  type = "text"
+  style = "diamond"
+  leading_diamond = ""
+  foreground = "#ffffff"
+  background = "#cc3802"
+  template = "{{ if .Env.PNPPSHOST }}  {{ .Env.PNPPSHOST }} {{ end }}"
+
+  [[blocks.segments]]
+  type = "text"
+  style = "powerline"
+  foreground = "#ffffff"
+  background = "#047e84"
+  powerline_symbol = ""
+  template = "{{ if .Env.PNPPSSITE }}  {{ .Env.PNPPSSITE }}{{ end }}"
+
+  [[blocks.segments]]
+  type = "text"
+  style = "diamond"
+  trailing_diamond = ""
+  foreground = "#ffffff"
+  background = "#047e84"
+  template = "{{ if .Env.PNPPSSITE }} {{ end }}"
+
+[[blocks]]
+alignment = "left"
+type = "prompt"
+
+  [[blocks.segments]]
+  background = "#9A348E"
+  foreground = "#ffffff"
+  leading_diamond = ""
+  style = "diamond"
+  template = "{{ .UserName }} "
+  type = "session"
+
+  [[blocks.segments]]
+  background = "#DA627D"
+  foreground = "#ffffff"
+  powerline_symbol = ""
+  style = "powerline"
+  template = " {{ .Path }} "
+  type = "path"
+
+    [blocks.segments.properties]
+    style = "folder"
+
+  [[blocks.segments]]
+  background = "#FCA17D"
+  foreground = "#ffffff"
+  powerline_symbol = ""
+  style = "powerline"
+  template = " ➜ ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}) "
+  type = "git"
+
+    [blocks.segments.properties]
+    branch_icon = ""
+    fetch_stash_count = true
+    fetch_status = false
+    fetch_upstream_icon = true
+
+  [[blocks.segments]]
+  background = "#86BBD8"
+  foreground = "#ffffff"
+  powerline_symbol = ""
+  style = "powerline"
+  template = "  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
+  type = "node"
+
+  [[blocks.segments]]
+  type = "python"
+  style = "powerline"
+  powerline_symbol = ""
+  foreground = "#100e23"
+  background = "#906cff"
+  template = "  {{ .Full }} "
+
+  [[blocks.segments]]
+  type = "kubectl"
+  style = "powerline"
+  powerline_symbol = ""
+  foreground = "#000000"
+  background = "#dcde6a"
+  template = " ☸ {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+
+    [blocks.segments.properties]
+    parse_kubeconfig = true
+
+      [blocks.segments.properties.context_aliases]
+      gke_iproov-dev-cluster_europe-west4_cluster-iproov-dev-cluster-d43rzm0z = "dev"
+
+
+[[blocks]]
+alignment = "left"
+newline = true
+type = "prompt"
+
+  [[blocks.segments]]
+  background = "#29315A"
+  foreground = "#AEA4BF"
+  leading_diamond = ""
+  style = "diamond"
+  template = "{{ .FormattedMs }}"
+  trailing_diamond = " "
+  type = "executiontime"
+
+    [blocks.segments.properties]
+    style = "austin"
+    threshold = 150
+
+  [[blocks.segments]]
+  background = "#29315A"
+  foreground = "#7FD5EA"
+  leading_diamond = ""
+  style = "diamond"
+  template = "❯"
+  trailing_diamond = ""
+  type = "text"
