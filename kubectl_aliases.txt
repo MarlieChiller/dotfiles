@@ -1,24 +1,32 @@
-# Copyright 2019 Google Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
+alias vim="hx"
+alias languages="hx ~/.config/helix/languages.toml"
+alias prp="poetry run pytest"
+alias pu="poetry update"
+alias visc="bash ~/.config/viscosity.sh"
+alias make_tag="export TAG=$(python3 ~/.dotfiles/scripts/make_tag.py) && echo $TAG"
+alias hum="kx dev && cd /Users/admin/Documents/work-projects/icluster/helm/iProov && make ENV=cwm"
+alias initvim='hx ~/.config/nvim/init.vim'
+alias initlua='hx ~/.config/nvim/init.lua'
+alias dcfub='docker-compose -f docker-compose.test.yaml up --build'
+alias dcfu='docker-compose -f docker-compose.test.yaml up'
+alias azl='az acr login -n iproovdev'
+alias krrd='kubectl rollout restart deployment'
+alias gen_pwd='env LC_CTYPE=C LC_ALL=C tr -dc "a-zA-Z0-9" < /dev/urandom | head -c 16; echo'
+alias gen_sp=/Users/admin/Documents/work-projects/utils/target/release/utils
 alias dotfiles='cd ~/.dotfiles'
-alias record='vim ~/.dotfiles/commands'
-alias alia='vim ~/.dotfiles/kubectl_aliases.txt'
-alias clean='kx dev && cd ~/Documents/work-projects/'
-alias home='cd ~/Documents/work-projects/'
-alias cbag='cat ~/.dotfiles/kubectl_aliases.txt | grep '
+alias record='hx ~/.dotfiles/commands'
+alias alia='hx ~/.dotfiles/kubectl_aliases.txt'
+alias personal='cd ~/Documents/personal-projects/'
+alias work='cd ~/Documents/work-projects/'
+alias clean='kx gke_iproov-dev-cluster_europe-west4_cluster-iproov-dev-cluster-d43rzm0z && work'
+alias iclstr='cd ~/Documents/work-projects/icluster'
+alias ipv='cd ~/Documents/work-projects/iproov'
+alias api_bash='cd ~/Documents/work-projects/api-bash-scripts'
+alias test='cd ~/Documents/work-projects/iproov/testing-tool'
+alias clibc='cd ~/Documents/work-projects/core-common-lib'
+alias cbag='alias | rg'
 alias strn='stern'
+alias ked='kubectl edit deploy'
 alias kx='kubectx'
 alias ke='kubens'
 alias k='kubectl'

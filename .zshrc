@@ -1,20 +1,9 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+# zmodload zsh/zprof
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:/usr/local/lib/node_modules 
+export PATH=$PATH:/usr/local/Cellar/node/20.8.0/bin
+export EDITOR="hx"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,62 +34,58 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+plugins=(docker-compose kube-ps1 gcloud dotenv zsh-syntax-highlighting git iterm2)
+# plugins=(docker-compose kube-ps1 gcloud dotenv zsh-autosuggestions zsh-syntax-highlighting git iterm2)
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+source "$ZSH/oh-my-zsh.sh"
+source "$HOME/.dotfiles/kubectl_aliases.txt"
+# source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+# PS1='$(kube_ps1)'$PS1
+PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git sublime docker-compose kube-ps1 fzf)
+eval "$(mcfly init zsh)"
+eval "$(zoxide init zsh)"
 
-source $ZSH/oh-my-zsh.sh
+# source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+# source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+# source <(stern --completion=zsh)
+# $export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
+# $export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+eval "$(oh-my-posh --init --shell zsh --config ~/.terminal_theme_2.json)"
 
-# User configuration
+source "${HOME}/.iterm2_shell_integration.zsh"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export PATH="/usr/local/opt/kubernetes-cli@1.22/bin:$PATH" 
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# This lazy loads nvm
+nvm() {
+  unset -f nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+  nvm $@
+}
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-[ -f ~/.dotfiles/kubectl_aliases.txt ] && source ~/.dotfiles/kubectl_aliases.txt
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-PS1='$(kube_ps1)'$PS1
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
-export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+# speeds up compinit by running once a day
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+  touch ~/.zcompdump
+else
+  compinit -C
+fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/admin/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+export PATH="/usr/local/sbin:$PATH"
