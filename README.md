@@ -1,14 +1,14 @@
-# dotfiles
-- dotfile configurations for unix machine
+# Dotfiles
+Dotfile configurations for unix machine
 
-# tools
+# Tools
 ###### terminal
-- iterm2
+iterm2
 ###### package manager
-- homebrew
+homebrew
 ###### terminal framework manager
-- oh-my-zsh
+oh-my-zsh
 ###### terminal themeing engine
-- oh-my-posh
+oh-my-posh
 ###### file browser
-- ranger
+ranger
