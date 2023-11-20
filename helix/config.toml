@@ -1,0 +1,21 @@
+theme = "material_oceanic"
+
+[editor]
+auto-pairs = false
+bufferline = "always"
+shell = ["zsh", "-c"]
+# line-number = "relative"
+color-modes = true
+text-width = 80
+
+[editor.file-picker]
+hidden = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
