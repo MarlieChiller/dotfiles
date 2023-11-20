@@ -1,5 +1,5 @@
 alias vim="hx"
-alias languages="hx ~/.config/helix/languages.toml"
+alias hx_lang="hx ~/.config/helix/languages.toml"
 alias prp="poetry run pytest"
 alias pu="poetry update"
 alias config_zsh="hx ~/.dotfiles/.zshrc"
