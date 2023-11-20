@@ -1,5 +1,0 @@
-{
-	"mongo_uri": "kgsec liveness-mongo-admin-uri -o jsonpath='{.data}' | python3 -c "import sys, json; print(json.load(sys.stdin)['mongo'])" | base64 --decode",
-	"get_gcloud_creds": "gcloud container clusters get-credentials cluster01 --region europe-west4 --project iproov-liveness",
-	
-}

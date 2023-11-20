@@ -1,5 +1,5 @@
 # Dotfiles
-Dotfile configurations for unix machine
+Dotfile configurations for unix machine. Clone into ~/.config dir
 
 # Tools
 ###### terminal

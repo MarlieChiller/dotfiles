@@ -5,6 +5,19 @@ export PATH=$PATH:/usr/local/lib/node_modules
 export PATH=$PATH:/usr/local/Cellar/node/20.8.0/bin
 export EDITOR="hx"
 
+# ---
+
+# BASH HISTORY CONFIG
+HISTFILE=~/.zsh_history
+setopt SHARE_HISTORY # share history between sessions
+setopt HIST_IGNORE_DUPS # ignore duplicate commands
+setopt EXTENDED_HISTORY # save each commands ts and duration
+setopt HIST_REDUCE_BLANKS # remove superfluous blanks from each command line in the history
+setopt APPEND_HISTORY # append history to the file rather than overwriting it.
+setopt INC_APPEND_HISTORY # write to the history file immediately after each command
+
+# ---
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -88,3 +101,4 @@ eval "$(zoxide init zsh)"
 export PATH="/Users/admin/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 export PATH="/usr/local/sbin:$PATH"
+
