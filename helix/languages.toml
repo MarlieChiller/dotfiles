@@ -18,7 +18,7 @@ language-servers = [
   { name = "ruff-lsp", only-features = [ "format", "diagnostics" ] },
   { name = "pyright", except-features = [ "format", "diagnostics" ] },
 ]
-formatter = {command = "ruff", args = ["format", "-"]}
+formatter = { command = "ruff", args = ["format", "-"]}
 
 [language-server.ruff-lsp]
 command = "ruff-lsp"
