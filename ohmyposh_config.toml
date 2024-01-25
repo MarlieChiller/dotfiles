@@ -90,21 +90,6 @@ type = "prompt"
   background = "#906cff"
   template = "  {{ .Full }} "
 
-  [[blocks.segments]]
-  type = "kubectl"
-  style = "powerline"
-  powerline_symbol = ""
-  foreground = "#000000"
-  background = "#dcde6a"
-  template = " ☸ {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
-
-    [blocks.segments.properties]
-    parse_kubeconfig = true
-
-      [blocks.segments.properties.context_aliases]
-      gke_iproov-dev-cluster_europe-west4_cluster-iproov-dev-cluster-d43rzm0z = "dev"
-
-
 [[blocks]]
 alignment = "left"
 newline = true

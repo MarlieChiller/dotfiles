@@ -3,7 +3,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:/usr/local/lib/node_modules 
 export PATH=$PATH:/usr/local/Cellar/node/20.8.0/bin
-export EDITOR="hx"
+export EDITOR="~/.local/bin/lvim"
 
 # ---
 
@@ -49,30 +49,11 @@ setopt INC_APPEND_HISTORY # write to the history file immediately after each com
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(docker-compose kube-ps1 gcloud zsh-autosuggestions zsh-syntax-highlighting git iterm2)
+plugins=(git)
 
 source "$ZSH/oh-my-zsh.sh"
-source "$HOME/.dotfiles/kubectl_aliases.txt"
-# source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-# PS1='$(kube_ps1)'$PS1
-PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
 
-
-# source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-# source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-# source <(stern --completion=zsh)
-# $export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
-# $export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 eval "$(oh-my-posh --init --shell zsh --config ~/.dotfiles/ohmyposh_config.toml)"
-
-source "${HOME}/.iterm2_shell_integration.zsh"
-
-USE_GKE_GCLOUD_AUTH_PLUGIN=True
-
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-
-export PATH="/usr/local/opt/kubernetes-cli@1.22/bin:$PATH" 
 
 # This lazy loads nvm
 nvm() {
@@ -93,12 +74,7 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
 eval "$(mcfly init zsh)"
 eval "$(zoxide init zsh)"
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/admin/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-export PATH="/usr/local/sbin:$PATH"
-
+source /home/marlie-chiller/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
