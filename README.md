@@ -2,13 +2,15 @@
 Dotfile configurations for unix machine. Clone into ~/.config dir
 
 # Tools
+###### editor
+lazyvim
 ###### terminal
-iterm2
+wezterm
 ###### package manager
-homebrew
+nix
 ###### terminal framework manager
-oh-my-zsh
+fish
 ###### terminal themeing engine
-oh-my-posh
+oh-my-fish
 ###### file browser
 ranger
